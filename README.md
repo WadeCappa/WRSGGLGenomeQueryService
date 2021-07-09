@@ -1,3 +1,3 @@
 # WRSGGLSearchWebsite
 
-Governement website providing free access to 30,125 indivdual genomic wheat datapoints, in both csv through an in-browser searcher, or through a supported API.
+First downloads without database.db file, program upon not being able to find it will attempt to make that file off of the allData.csv file. Program will not function without the allData.csv file
