@@ -1,0 +1,262 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="/WRSGGL-Wheat-Genome-Searcher">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Wheat Genome Search</legend>
+            <fieldset class="form-group">
+                {% if errorMessage != '' %}
+                    <div class="errorMes">
+                        {{errorMessage}}
+                    </div>
+                    <br>
+                {% endif%}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                {{ form.genomeName.label(class="form=control-label") }}
+                                {{ form.genomeName(class="form-control form-control-lg") }}
+                                <p>Enter name of genome (IWB23, IWA233, etc.)</p>
+                            </div>
+                            <div>&nbsp;</div>
+                            <div class="form-group">
+                                {{ form.genomeCultivar.label(class="form=control-label") }}
+                                {{ form.genomeCultivar(class="form-control form-control-lg") }}
+                                <p>Enter name of Cultivar (Karmont, TAM 202, etc.)</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            {{ form.genomeChrom.label(class="form=control-label") }}
+                            <table class="table table-sm table-light">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">1</th>
+                                        <th scope="col">2</th>
+                                        <th scope="col">3</th>
+                                        <th scope="col">4</th>
+                                        <th scope="col">5</th>
+                                        <th scope="col">6</th>
+                                        <th scope="col">7</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">A</th>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom1A(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom2A(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom3A(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom4A(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom5A(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom6A(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom7A(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">B</th>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom1B(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom2B(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom3B(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom4B(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom5B(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom6B(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom7B(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">D</th>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom1D(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom2D(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom3D(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom4D(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom5D(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom6D(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                {{ form.chrom7D(class="form-check-input")}}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="form=control-label" style="margin: 0 auto;">
+                                                cM Range (Ex: 70.2 to 130.73)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        {{ form.lowerCM(class="form-control form-control-lg")}}
+                                    </div>
+                                    <div class="col-sm-2" style="margin: auto auto; text-align: center;">
+                                        to
+                                    </div>
+                                    <div class="col-sm-5">
+                                        {{ form.upperCM(class="form-control form-control-lg")}}
+                                    </div>
+                                </div>
+                            </div>        
+                        </div>
+            </fieldset>
+</div>
+
+<div id="slider-range"></div>
+
+<div class="form-group">
+    {{ form.submit(class="btn btn-outline-info") }}
+</div>
+
+{% if messages %}
+
+<div class="content-section">
+
+    <a href= {{ "../static/exitFiles/" + outFile + ".csv" }} download = {{ outFile + ".csv"}}>
+        <h4>
+            Download Data
+            <img src="../static/csv_logo.png" alt="CSVLogo" style="width:60px;height:60px;">
+        </h4>
+    </a>
+
+</div>
+
+<h4> {{messagesCount|length}} Results
+</h4>
+<p class="smallText">(Currently showing {{messages|length}} / {{messagesCount|length}}
+    )</p>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">SNP ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">cM</th>
+            <th scope="col">Chromosome</th>
+            <th scope="col">{{ form.genomeCultivar.data.replace("AB",
+                "").replace("AA","").replace("BB","").replace(",","")}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set count = 1 %}
+        {% for message in messages if count != 100 %}
+        <!--<li class="list-group-item">{{message}}</li>-->
+        <tr>
+            <th scope="row">{{message.SNPId}}</th>
+            <td>{{message.name}}</td>
+            <td>{{message.cM}}</td>
+            <td>{{message.chrom}}</td>
+            {% if form.genomeCultivar.data %}
+            <td>{{
+                (message.samples[message.samples.find(form.genomeCultivar.data)
+                :message.samples.find(form.genomeCultivar.data) +
+                form.genomeCultivar.data|length +
+                2]).replace(",","").replace(form.genomeCultivar.data.replace("AB",
+                "").replace("AA","").replace("BB","").replace(",",""), "").replace(",","")}}
+            </td>
+
+            {% endif %}
+            <!--<td>
+                            {{ message.samples }}
+                        </td>-->
+            {% set count = count + 1 %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif%}
+
+
+</form>
+</div>
+<div class="border-top pt-3">
+    <small class="text-muted">
+    </small>
+</div>
+
+</div>
+{% endblock content %}
