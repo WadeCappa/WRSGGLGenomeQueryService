@@ -8,6 +8,12 @@
     border-radius: 3px; */
 }
 
+
+.subButton
+{
+    text-align: left;
+}
+
 .subHead
 {
     font-weight: bold;
@@ -28,6 +34,8 @@
     width: 50%;
       
 }
+
+
 
 .docBody
 {

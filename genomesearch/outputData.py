@@ -15,8 +15,8 @@ class Output():
     schedule = sched.scheduler(time.time, time.sleep)
     def writeToCSV(queryOutput, cultures, targetCultivar = ""):
 
-        fileName = str(uuid.uuid4())
-        pathToFile = "genomesearch/static/exitFiles/" + fileName + ".csv"
+        fileName = "exitFiles/" + str(uuid.uuid4())
+        pathToFile = "genomesearch/static/" + fileName + ".csv"
         outfile = open(f'{pathToFile}', 'w')
 
         rows = queryOutput
@@ -27,7 +27,7 @@ class Output():
         for columnName in excludedColumns:
             columnNames.pop(columnNames.index(columnName))
 
-        columnNames += cultures.split(',')
+        columnNames += cultures
 
         writtenNames = columnNames
         writtenNames.pop(writtenNames.index("samples"))  
@@ -42,11 +42,15 @@ class Output():
                     csvInf += data + ","
 
             data = str(row.__dict__["samples"])
+            dataArr = data.split(',')
+            data = ""
 
-            for cultureName in cultures.split(','):
-                data = data.replace(cultureName, '', 1)
+            cultureIncrement = 0
+            while cultureIncrement < len(cultures):   
+                data += dataArr[cultureIncrement].replace(cultures[cultureIncrement], '', 1) + ','           
+                cultureIncrement += 1                
 
-            csvInf += data + ","   
+            csvInf += data
             csvInf += "\n"
 
         csvInf = csvInf.replace(' ','')
@@ -88,18 +92,20 @@ class Output():
                     data = str(row.__dict__[columnName])
                     jsonInf += '"' + columnName + '"' +  ":" + '"' + data + '",\n'
 
+
             culturesSTR = str(row.__dict__["samples"])
+            dataArr = culturesSTR.split(',')
+            data = ""
 
             jsonInf += '"Samples":\n{'
-            samplesSTR = ''
-            strContant = [x for x in culturesSTR.split(',')]
-            strContantIncrement = 0
-            for cultureName in cultures.split(','):
-                samplesSTR += '     "' + cultureName + '":"' + strContant[strContantIncrement].replace(cultureName, '', 1) + '",\n'
-                strContantIncrement += 1
 
-            samplesSTR = samplesSTR[:-2]
-            jsonInf += samplesSTR + "\n}\n"   
+            dataIncrement = 0
+            while (dataIncrement < len(dataArr)):
+                data += '"' + cultures[dataIncrement] + '":"' + dataArr[dataIncrement].replace(cultures[dataIncrement], '', 1) + '",\n'
+                dataIncrement += 1
+
+            data = data[:-2]
+            jsonInf += data + "\n}\n"   
             jsonInf += "},\n"
 
         jsonInf = jsonInf.replace(' ','')

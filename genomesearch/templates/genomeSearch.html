@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
+
 <div class="content-section">
     <form method="POST" action="/WRSGGL-Wheat-Genome-Searcher">
         {{ form.hidden_tag() }}
@@ -189,22 +190,47 @@
 
 <div id="slider-range"></div>
 
-<div class="form-group">
-    {{ form.submit(class="btn btn-outline-info") }}
+<div class="row">
+    <div class = "col-4">
+        <div class="form-group subButton">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </div>
+    <div class = "col-8">
+
+        {% if messages %}
+
+
+        <a href= {{ "../static/" + outFile + ".csv" }} download = {{ outFile + ".csv"}}>       
+
+            <div >
+                <h5 >
+                    <div class = "content-csv ">
+                        <div class = "row" style="text-align: right;"> 
+                            <div class = "col-1"></div>
+                            <div class = "col-7 textDL">
+                                Download Data
+                                <p class = "h7">Comma-Separated Values </p>
+                            </div>
+                            <div class="col-1">
+                                <img src="../static/csvicon.jpg" alt="CSVLogo" > 
+                            </div>
+
+                        </div>
+                    </div>    
+                       
+                </h5>
+                             
+            </div>    
+        </a>
+        <p class = "subtext"> Search results and aditional data inside CSV </p>
+        {% endif%}
+    </div>
 </div>
+
 
 {% if messages %}
 
-<div class="content-section">
-
-    <a href= {{ "../static/exitFiles/" + outFile + ".csv" }} download = {{ outFile + ".csv"}}>
-        <h4>
-            Download Data
-            <img src="../static/csv_logo.png" alt="CSVLogo" style="width:60px;height:60px;">
-        </h4>
-    </a>
-
-</div>
 
 <h4> {{messagesCount|length}} Results
 </h4>

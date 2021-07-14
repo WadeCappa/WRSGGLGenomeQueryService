@@ -51,6 +51,22 @@ body {
     border-radius: 3px;
     margin-bottom: 20px;
   }
+
+
+  .content-csv {
+    min-width: 400px;
+    background: #ffffff;
+    padding: 5px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+  }
+
+
+  .subtext
+  {
+      text-align: center;
+      font-size: smaller;
+  }
   
   .article-title {
     color: #444444;
@@ -102,3 +118,36 @@ body {
   .smallText {
     font-size: 10px;
   }
+
+
+  .downloadtext
+  {
+    text-align: center;
+    /* max-height: 5rem; */
+  }
+
+  .downloadImage
+  {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+  }
+
+
+  .imageDL {
+    margin: 1rem;
+}
+
+.textDL {
+    margin: 1rem;
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    width: 100%
+}
+
+
+.h7
+{
+    font-size: small;
+}
