@@ -10,8 +10,6 @@ from datetime import datetime
 import time, sched
 
 class Output():
-
-
     schedule = sched.scheduler(time.time, time.sleep)
     def writeToCSV(queryOutput, cultures, targetCultivar = ""):
 
@@ -57,7 +55,6 @@ class Output():
         outfile.write(csvInf)
         outfile.close()
         return(fileName)
-
 
 
     def writeToJson(queryOutput, cultures, targetCultivar = ""):
@@ -111,6 +108,7 @@ class Output():
         jsonInf = jsonInf.replace(' ','')
         jsonInf = jsonInf[:-6]
         jsonInf += '\n}\n}\n}'
+
         outfile.write(jsonInf)
         outfile.close()
 
@@ -118,3 +116,5 @@ class Output():
         data = json.load(outfile)
 
         return(data)
+
+        
